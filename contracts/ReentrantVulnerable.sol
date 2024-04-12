@@ -12,14 +12,14 @@ contract ReentrantVulnerable {
         balances[msg.sender] += msg.value;
     }
 
-    function withdraw(uint256 amount) external {
-        if (balances[msg.sender] < amount) {
+    function withdraw() external {
+        if (balances[msg.sender] <= 0) {
             revert ReentrantVulnerable__BalanceTooLow();
         }
-        (bool success, ) = msg.sender.call{ value: amount }("");
+        (bool success, ) = msg.sender.call{ value: balances[msg.sender] }("");
         if (!success) {
             revert ReentrantVulnerable__TransferFailed();
         }
-        balances[msg.sender] -= amount;
+        balances[msg.sender] = 0;
     }
 }

@@ -63,7 +63,20 @@ Follow these easy steps to set up the project locally.
 
 ## Usage
 
-TODO: write usage examples
+You can play with different values and methods by changing tests at "TheAttack.test.ts". To run the default ones, use:
+```sh
+yarn hardhat test
+```
+
+If you want to test the vulnerable contract only, use:
+```sh
+yarn hardhat test --grep "Attack vulnerable"
+```
+
+If you want to test the invulnerable contract only, use:
+```sh
+yarn hardhat test --grep "Attack invulnerable"
+```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

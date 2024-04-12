@@ -14,10 +14,10 @@ const config: HardhatUserConfig = {
         },
     },
     namedAccounts: {
-        deployer: {
+        attacker: {
             default: 0,
         },
-        player: {
+        victim: {
             default: 1,
         },
     },
